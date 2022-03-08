@@ -1,0 +1,42 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: service-gateway
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: service-customer
+#        uri: lb://service-customer/api/v1/customer
+#        predicates:
+#        - Path=/bank/customer/**
+  cloud:
+    gateway:
+      routes:
+      - id: service-customer
+        uri: lb://service-customer
+        predicates:
+        - Path=/api/v1/customer/**
+        
+      - id: service-account
+        uri: lb://service-account
+        predicates:
+        - Path=/api/v1/account/**
+        
+      - id: service-credit
+        uri: lb://service-credit
+        predicates:
+        - Path=/api/v1/credit/**
+        
+      - id: service-movements
+        uri: lb://service-movements
+        predicates:
+        - Path=/api/v1/movement/**
+        
+#Eureka Client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8087/eureka
+    #enabled: false
