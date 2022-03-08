@@ -18,22 +18,65 @@ spring:
         uri: lb://service-customer
         predicates:
         - Path=/api/v1/customer/**
+        filters:
+        - CircuitBreaker=service-customer
         
       - id: service-account
         uri: lb://service-account
         predicates:
         - Path=/api/v1/account/**
+        filters:
+          - CircuitBreaker=service-account
         
       - id: service-credit
         uri: lb://service-credit
         predicates:
         - Path=/api/v1/credit/**
+        filters:
+          - CircuitBreaker=service-credit
         
       - id: service-movements
         uri: lb://service-movements
         predicates:
         - Path=/api/v1/movement/**
+        filters:
+          - CircuitBreaker=service-movements
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        sliding-window-size: 6
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 30s
+        permitted-number-of-calls-in-half-open-state: 4
+        slow-call-rate-threshold: 50
+        slow-call-duration-threshold: 2s
+    instances:
+      service-customer:
+        base-config: default
+      service-account:
+        base-config: default
+      service-credit:
+        base-config: default
+      service-movements:
+        base-config: default
         
+  #timeout
+  timelimiter:
+    configs:
+      default:
+        timeout-duration: 2s
+    instances:
+      service-customer:
+        base-config: default
+      service-account:
+        base-config: default
+      service-credit:
+        base-config: default
+      service-movements:
+        base-config: default
+
 #Eureka Client
 eureka:
   client:
