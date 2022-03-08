@@ -26,21 +26,21 @@ spring:
         predicates:
         - Path=/api/v1/account/**
         filters:
-          - CircuitBreaker=service-account
+        - CircuitBreaker=service-account
         
       - id: service-credit
         uri: lb://service-credit
         predicates:
         - Path=/api/v1/credit/**
         filters:
-          - CircuitBreaker=service-credit
+        - CircuitBreaker=service-credit
         
       - id: service-movements
         uri: lb://service-movements
         predicates:
         - Path=/api/v1/movement/**
         filters:
-          - CircuitBreaker=service-movements
+        - CircuitBreaker=service-movements
 
 resilience4j:
   circuitbreaker:
