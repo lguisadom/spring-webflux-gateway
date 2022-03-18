@@ -42,6 +42,20 @@ spring:
         filters:
         - CircuitBreaker=service-movements
 
+      - id: service-card
+        uri: lb://service-card
+        predicates:
+        - Path=/api/v1/debitCard/**
+        filters:
+        - CircuitBreaker=service-card
+
+      - id: service-report
+        uri: lb://service-report
+        predicates:
+        - Path=/api/v1/report/**
+        filters:
+        - CircuitBreaker=service-card
+
 resilience4j:
   circuitbreaker:
     configs:
@@ -61,7 +75,11 @@ resilience4j:
         base-config: default
       service-movements:
         base-config: default
-        
+      service-card:
+        base-config: default
+      service-report:
+        base-config: default
+
   #timeout
   timelimiter:
     configs:
@@ -75,6 +93,10 @@ resilience4j:
       service-credit:
         base-config: default
       service-movements:
+        base-config: default
+      service-card:
+        base-config: default
+      service-report:
         base-config: default
 
 #Eureka Client
