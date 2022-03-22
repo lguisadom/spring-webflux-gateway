@@ -17,14 +17,14 @@ spring:
       - id: service-customer
         uri: lb://service-customer
         predicates:
-        - Path=/api/v1/customer/**
+        - Path=/api/v1/customer/**, /api/v1/customerType/**, /api/v1/customerProfile/**
         filters:
         - CircuitBreaker=service-customer
         
       - id: service-account
         uri: lb://service-account
         predicates:
-        - Path=/api/v1/account/**
+        - Path=/api/v1/account/**, /api/v1/bankAccountType/**
         filters:
         - CircuitBreaker=service-account
         
@@ -54,7 +54,7 @@ spring:
         predicates:
         - Path=/api/v1/report/**
         filters:
-        - CircuitBreaker=service-card
+        - CircuitBreaker=service-report
 
 resilience4j:
   circuitbreaker:
