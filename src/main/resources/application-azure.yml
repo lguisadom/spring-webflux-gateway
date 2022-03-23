@@ -1,0 +1,12 @@
+#Eureka Client
+eureka:
+  client:
+    service-url:
+      defaultZone: https://bootcamp2022-ms-eureka.azurewebsites.net:443/eureka
+    #enabled: false
+  instance:
+    hostname: bootcamp2022-ms-gateway.azurewebsites.net
+    secure-port-enabled: true
+    nonsecure-port-enabled: false
+    nonSecurePort: 80
+    securePort: 443
