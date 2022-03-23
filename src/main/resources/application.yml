@@ -3,7 +3,7 @@ server:
 
 spring:
   profiles:
-    active: azure
+    active: dev #azure
   application:
     name: service-gateway
 #  cloud:
