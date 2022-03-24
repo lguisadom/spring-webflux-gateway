@@ -58,6 +58,13 @@ spring:
         filters:
         - CircuitBreaker=service-report
 
+      - id: service-bootcoin
+        uri: lb://service-bootcoin
+        predicates:
+        - Path=/api/v1/exchange/**, /api/v1/wallet/**, /api/v1/transaction/**,
+        filters:
+        - CircuitBreaker=service-bootcoin
+
 resilience4j:
   circuitbreaker:
     configs:
@@ -81,6 +88,8 @@ resilience4j:
         base-config: default
       service-report:
         base-config: default
+      service-bootcoin:
+        base-config: default
 
   #timeout
   timelimiter:
@@ -99,6 +108,8 @@ resilience4j:
       service-card:
         base-config: default
       service-report:
+        base-config: default
+      service-bootcoin:
         base-config: default
 
 #Eureka Client
