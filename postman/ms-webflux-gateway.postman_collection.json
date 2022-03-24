@@ -1678,6 +1678,358 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "bootcoin",
+			"item": [
+				{
+					"name": "ExchangeRate - Tasa de Cambio Copy",
+					"item": [
+						{
+							"name": "create - Crea tasa de cambio actual",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"purchase\": 6,\r\n    \"sale\":  5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/exchange",
+									"protocol": "http",
+									"host": [
+										"{{HOST_APIGATEWAY}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"exchange"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get - Última tasa de cambio",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/exchange",
+									"protocol": "http",
+									"host": [
+										"{{HOST_APIGATEWAY}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"exchange"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Wallet - Bootcoin billetera Copy",
+					"item": [
+						{
+							"name": "findAll - Lista todas las billeteras",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/wallet",
+									"protocol": "http",
+									"host": [
+										"{{HOST_APIGATEWAY}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"wallet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create - Crea una billetera",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"identification\": \"12345678\",\r\n    \"cellphone\": \"966389314\",\r\n    \"email\": \"luisguisado@gmail.com\",\r\n    \"amount\": 150.5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/wallet",
+									"protocol": "http",
+									"host": [
+										"{{HOST_APIGATEWAY}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"wallet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findByIdentification",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/wallet/find/identification/46687135",
+									"protocol": "http",
+									"host": [
+										"{{HOST_APIGATEWAY}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"wallet",
+										"find",
+										"identification",
+										"46687135"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "TransactionRequest - Solicitud de compra Copy",
+					"item": [
+						{
+							"name": "create - tipo TRANSFERENCIA Crea solicitud de compra",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"identification\": \"12345678\",\r\n    \"amount\": 1,\r\n    \"transactionType\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/transaction/request",
+									"protocol": "http",
+									"host": [
+										"{{HOST_APIGATEWAY}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"transaction",
+										"request"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create - tipo YANQUI Crea solicitud de compra",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"identification\": \"46687132\",\r\n    \"amount\": 15,\r\n    \"transactionType\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/transaction/request",
+									"protocol": "http",
+									"host": [
+										"{{HOST_APIGATEWAY}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"transaction",
+										"request"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll - Lista todas las solicitudes de compra",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/transaction/request",
+									"protocol": "http",
+									"host": [
+										"{{HOST_APIGATEWAY}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"transaction",
+										"request"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Active Request - Consulta solicitudes de compra activas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/transaction/request/active",
+									"protocol": "http",
+									"host": [
+										"{{HOST_APIGATEWAY}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"transaction",
+										"request",
+										"active"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "TransactionAcceptance - Aceptación de compra de bitcoin Copy",
+					"item": [
+						{
+							"name": "create - Crea Aceptación de solicitud  de compra",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"sellerIdentification\": \"09557358\",\r\n    \"idTransactionRequest\": \"623c67453736a776de364f53\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/transaction/acceptance",
+									"protocol": "http",
+									"host": [
+										"{{HOST_APIGATEWAY}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"transaction",
+										"acceptance"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create - Crea Aceptación de solicitud  de compra 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"sellerIdentification\": \"46687130\",\r\n    \"idTransactionRequest\": \"623c44664ab34f4bc2e1076c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/transaction/acceptance",
+									"protocol": "http",
+									"host": [
+										"{{HOST_APIGATEWAY}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"transaction",
+										"acceptance"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "findAll - Lista todas las aceptaciones a solicitud de compra",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/transaction/acceptance",
+									"protocol": "http",
+									"host": [
+										"{{HOST_APIGATEWAY}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"transaction",
+										"acceptance"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Active Request - Consulta aceptaciones en proceso",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/transaction/acceptance/processing",
+									"protocol": "http",
+									"host": [
+										"{{HOST_APIGATEWAY}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"transaction",
+										"acceptance",
+										"processing"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
 		}
 	],
 	"event": [
