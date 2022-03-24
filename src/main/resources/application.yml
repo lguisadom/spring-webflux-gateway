@@ -61,7 +61,7 @@ spring:
       - id: service-bootcoin
         uri: lb://service-bootcoin
         predicates:
-        - Path=/api/v1/exchange/**, /api/v1/wallet/**, /api/v1/transaction/**,
+        - Path=/api/v1/exchange/**, /api/v1/wallet/**, /api/v1/wallet/find/**, /api/v1/transaction/**,
         filters:
         - CircuitBreaker=service-bootcoin
 
