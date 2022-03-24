@@ -1787,29 +1787,6 @@
 								}
 							},
 							"response": []
-						},
-						{
-							"name": "findByIdentification",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://{{HOST_APIGATEWAY}}/api/v1/wallet/find/identification/46687135",
-									"protocol": "http",
-									"host": [
-										"{{HOST_APIGATEWAY}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"wallet",
-										"find",
-										"identification",
-										"46687135"
-									]
-								}
-							},
-							"response": []
 						}
 					]
 				},
